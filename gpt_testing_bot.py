@@ -14,7 +14,7 @@ btnHlp = KeyboardButton('Help')
 
 help_kb = ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=False).row(btnHlp)
 
-# token = os.environ['GPT_TG_BOT_TOKEN']
+token = os.environ['GPT_TG_BOT_TOKEN']
 
 bot = Bot(token=token)  # Токен моего  бота gpt_textai_bot
 
