@@ -29,9 +29,9 @@ def gpt_try(prompt):
               ]
             )
         # print(completion.choices[0].message.content)
-        return completion.choices[0].message.content
+        return [completion.choices[0].message.content, prompt]
     except Exception as exc:
-        return str(exc)
+        return [str(exc), "warning"]
 
 # answer = gpt_try(prompt)
 #
