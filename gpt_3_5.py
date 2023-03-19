@@ -19,7 +19,7 @@ prompt = "Придумай шутку на тему IT"
 
 
 def gpt_try(prompt):
-    print(prompt)
+    # print(str(prompt))
 
     try:
 
@@ -29,7 +29,7 @@ def gpt_try(prompt):
                 {"role": "user", "content": f"{prompt}"}
               ]
             )
-        print(completion.choices[0].message.content)
+        # print(completion.choices[0].message.content)
         return completion.choices[0].message.content
     except Exception as exc:
         return str(exc)
