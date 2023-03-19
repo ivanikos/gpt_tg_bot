@@ -3,7 +3,8 @@ import os
 
 
 # openai.organization = "org-XNE0GNeBY8RQag2cQRbHzDzu"
-openai.api_key = os.environ['OPENAI_API_KEY']
+# openai.api_key = os.environ['OPENAI_API_KEY']
+# openai.api_key = "k-XMlFMU2MrnIfBa9lmfFoT3BlbkFJ4yzcdR8BO03CmsaEhMxV"
 
 # openai.Model.list()
 
@@ -14,18 +15,24 @@ openai.api_key = os.environ['OPENAI_API_KEY']
 #          " , приведи ссылку на эту новость и ссылку на фото относящееся к этой новости" # НЕ работает
 
 
-# prompt = "Придумай шутку на тему IT"
+prompt = "Придумай шутку на тему IT"
 
 
 def gpt_try(prompt):
+    print(prompt)
 
-    completion = openai.ChatCompletion.create(
-          model="gpt-3.5-turbo",
-          messages=[
-            {"role": "user", "content": f"{prompt}"}
-          ]
-        )
-    return completion.choices[0].message.content
+    try:
+
+        completion = openai.ChatCompletion.create(
+              model="gpt-3.5-turbo",
+              messages=[
+                {"role": "user", "content": f"{prompt}"}
+              ]
+            )
+        print(completion.choices[0].message.content)
+        return completion.choices[0].message.content
+    except Exception as exc:
+        return str(exc)
 
 # answer = gpt_try(prompt)
 #
