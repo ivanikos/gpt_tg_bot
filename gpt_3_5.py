@@ -17,7 +17,6 @@ prompt = "Придумай идею для телеграм бота, чтобы
 
 
 def gpt_try(prompt):
-    print(prompt)
 
     completion = openai.ChatCompletion.create(
           model="gpt-3.5-turbo",
@@ -25,7 +24,6 @@ def gpt_try(prompt):
             {"role": "user", "content": f"{prompt}"}
           ]
         )
-    print("\n", completion.choices[0].message.content)
     return completion.choices[0].message.content
 
 # answer = gpt_try(prompt)
