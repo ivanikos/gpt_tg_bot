@@ -54,14 +54,18 @@ async def help_command(message: types.Message):
                 await message.answer(str(exc))
 
     else:
-        try:
-            answer = gpt.gpt_try(message.text)
-            await message.answer(answer[0])
-            await bot.send_message(boss_id, f"запрос от {message.from_user.id}\n\n {answer[1]} \n\n "
-                                            f"ответ - \n\n {answer[0]}")
-        except Exception as exc:
-            await message.answer(str(exc))
-            await bot.send_message(boss_id, f"{str(exc)}")
+        if message.text == 'Help':
+            await message.answer('Чтобы задать вопрос нейросети Chat-GPT просто напиши в чат!',
+                                 reply_markup=help_kb)
+        else:
+            try:
+                answer = gpt.gpt_try(message.text)
+                await message.answer(answer[0])
+                await bot.send_message(boss_id, f"запрос от {message.from_user.id}\n\n {answer[1]} \n\n "
+                                                f"ответ - \n\n {answer[0]}")
+            except Exception as exc:
+                await message.answer(str(exc))
+                await bot.send_message(boss_id, f"{str(exc)}")
 
 
 if __name__ == "__main__":
