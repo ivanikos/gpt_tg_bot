@@ -3,8 +3,7 @@ import os
 
 
 # openai.organization = "org-XNE0GNeBY8RQag2cQRbHzDzu"
-# openai.api_key = os.environ['OPENAI_API_KEY']
-# openai.api_key = "k-XMlFMU2MrnIfBa9lmfFoT3BlbkFJ4yzcdR8BO03CmsaEhMxV"
+openai.api_key = os.environ['OPENAI_API_KEY']
 
 # openai.Model.list()
 
