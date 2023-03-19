@@ -1,4 +1,5 @@
 import logging
+import os
 
 from aiogram import Bot, Dispatcher, types, executor
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
@@ -13,7 +14,9 @@ btnHlp = KeyboardButton('Help')
 
 help_kb = ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=False).row(btnHlp)
 
-bot = Bot(token='5905559198:AAFYJsIxxs08VWm4Moiqsjdz42p4tFV5grE')  # Токен моего  бота gpt_textai_bot
+token = os.environ['GPT_TG_BOT_TOKEN']
+
+bot = Bot(token=token)  # Токен моего  бота gpt_textai_bot
 
 dp: Dispatcher = Dispatcher(bot, storage=MemoryStorage())
 

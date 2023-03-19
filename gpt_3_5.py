@@ -1,8 +1,9 @@
 import openai
+import os
 
 
 # openai.organization = "org-XNE0GNeBY8RQag2cQRbHzDzu"
-openai.api_key = "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"
+openai.api_key = os.environ['OPENAI_API_KEY']
 
 # openai.Model.list()
 
@@ -13,7 +14,7 @@ prompt = "Придумай идею для телеграм бота, чтобы
 #          " , приведи ссылку на эту новость и ссылку на фото относящееся к этой новости" # НЕ работает
 
 
-# prompt = "Придумай шутку на тему IT"
+prompt = "Придумай шутку на тему IT"
 
 
 def gpt_try(prompt):
@@ -26,9 +27,9 @@ def gpt_try(prompt):
         )
     return completion.choices[0].message.content
 
-# answer = gpt_try(prompt)
-#
-# print(answer)
+answer = gpt_try(prompt)
+
+print(answer)
 
 
 
