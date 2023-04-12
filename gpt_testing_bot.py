@@ -74,7 +74,7 @@ async def help_command(message: types.Message):
 
             await message.answer(f"User id - {id_user_banned} - added in ban-list.")
 
-        elif "unban" in str(message.text):
+        elif "unb" in str(message.text):
             id_user_unbanned = str(message.text).replace(" ", "").replace("\n", "")
             ban_users.remove(id_user_unbanned)
             with open("ban.txt", "w") as file:
