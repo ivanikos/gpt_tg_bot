@@ -33,6 +33,7 @@ async def start_using(message: types.Message):
         banned_users = file.readlines()
         for i in banned_users:
             ban_users.append(i.replace('\n', '').replace(" ", ""))
+    file.close()
 
     if str(message.from_user.id) in ban_users:
         await message.answer("You have banned.")
@@ -55,6 +56,7 @@ async def help_command(message: types.Message):
         banned_users = file.readlines()
         for i in banned_users:
             ban_users.append(i.replace('\n', '').replace(" ", ""))
+    file.close()
 
     if str(message.from_user.id) in ban_users:
         await message.answer("You have banned.")
@@ -71,6 +73,7 @@ async def help_command(message: types.Message):
             with open("ban.txt", "w") as file:
                 for i in ban_users:
                     file.write(i + "\n")
+            file.close()
 
             await message.answer(f"User id - {id_user_banned} - added in ban-list.")
 
@@ -80,6 +83,7 @@ async def help_command(message: types.Message):
             with open("ban.txt", "w") as file:
                 for i in ban_users:
                     file.write(i + "\n")
+            file.close()
             await message.answer(f"User id - {id_user_unbanned} - removed from ban-list.")
 
 
@@ -89,6 +93,7 @@ async def help_command(message: types.Message):
                 banned_users = file.readlines()
                 for i in banned_users:
                     ban_list = ban_list + i + "\n"
+            file.close()
             await message.answer(f"Список заблокированных ID:\n {ban_list}")
 
 
