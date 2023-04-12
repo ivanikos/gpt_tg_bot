@@ -66,7 +66,7 @@ async def help_command(message: types.Message):
                                  reply_markup=help_kb)
 
         elif "ban" in str(message.text):
-            id_user_banned = str(message.text).replace(" ", "").replace("\n", "")
+            id_user_banned = str(message.text).replace(" ", "").replace("\n", "").replace("ban")
             ban_users.append(id_user_banned)
             with open("ban.txt", "w") as file:
                 for i in ban_users:
