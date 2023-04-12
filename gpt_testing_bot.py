@@ -83,7 +83,7 @@ async def help_command(message: types.Message):
             await message.answer(f"User id - {id_user_unbanned} - removed from ban-list.")
 
 
-        elif "ban-list" == message.text:
+        elif "b-list" == message.text:
             ban_list = ""
             with open("ban.txt", "w") as file:
                 for i in ban_users:
