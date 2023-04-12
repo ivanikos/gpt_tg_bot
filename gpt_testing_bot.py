@@ -28,7 +28,7 @@ boss_id = 799592984
 ban_users = ['5895827248', '799592984']
 @dp.message_handler(commands='start')
 async def start_using(message: types.Message):
-    if message.from_user.id in ban_users:
+    if str(message.from_user.id) in ban_users:
         await message.answer("You have banned.")
 
     if message.from_user.id == 799592984:
@@ -44,7 +44,7 @@ async def start_using(message: types.Message):
 
 @dp.message_handler()
 async def help_command(message: types.Message):
-    if message.from_user.id in ban_users:
+    if str(message.from_user.id) in ban_users:
         await message.answer("You have banned.")
 
     if message.from_user.id == 799592984:
