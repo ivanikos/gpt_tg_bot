@@ -67,7 +67,7 @@ async def help_command(message: types.Message):
             await message.answer('Чтобы задать вопрос нейросети Chat-GPT просто напиши в чат!',
                                  reply_markup=help_kb)
 
-        elif "ban" in str(message.text):
+        elif "ban" in message.text:
             id_user_banned = str(message.text).replace(" ", "").replace("\n", "").replace("ban")
             ban_users.append(id_user_banned)
             with open("ban.txt", "w") as file:
@@ -77,7 +77,7 @@ async def help_command(message: types.Message):
 
             await message.answer(f"User id - {id_user_banned} - added in ban-list.")
 
-        elif "unb" in str(message.text):
+        elif "unb" in message.text:
             id_user_unbanned = str(message.text).replace(" ", "").replace("\n", "")
             ban_users.remove(id_user_unbanned)
             with open("ban.txt", "w") as file:
