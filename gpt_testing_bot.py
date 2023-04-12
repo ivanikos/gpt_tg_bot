@@ -85,8 +85,9 @@ async def help_command(message: types.Message):
 
         elif "b-list" == message.text:
             ban_list = ""
-            with open("ban.txt", "w") as file:
-                for i in ban_users:
+            with open("ban.txt", "r") as file:
+                banned_users = file.readlines()
+                for i in banned_users:
                     ban_list = ban_list + i + "\n"
             await message.answer(f"Список заблокированных ID:\n {ban_list}")
 
