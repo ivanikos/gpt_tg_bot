@@ -68,6 +68,7 @@ async def help_command(message: types.Message):
                                  reply_markup=help_kb)
 
         elif "ban" in message.text:
+            await message.answer(message.text)
             id_user_banned = str(message.text).replace(" ", "").replace("\n", "").replace("ban")
             ban_users.append(id_user_banned)
             with open("ban.txt", "w") as file:
@@ -78,6 +79,8 @@ async def help_command(message: types.Message):
             await message.answer(f"User id - {id_user_banned} - added in ban-list.")
 
         elif "unb" in message.text:
+            await message.answer(message.text)
+
             id_user_unbanned = str(message.text).replace(" ", "").replace("\n", "")
             ban_users.remove(id_user_unbanned)
             with open("ban.txt", "w") as file:
