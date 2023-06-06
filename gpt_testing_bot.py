@@ -95,6 +95,14 @@ async def help_command(message: types.Message):
             file.close()
             await message.answer(f"Список заблокированных ID:\n {ban_list}")
 
+        elif message.from_user.id == boss_id and message.text[0] == "&":
+            try:
+                query = message.text.replace("&", "Переведи на русский: \n")
+                answer = gpt.gpt_try(query)
+                await message.answer(answer[0])
+            except Exception as exc:
+                await message.answer(str(exc))
+
 
         else:
             try:
