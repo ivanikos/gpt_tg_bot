@@ -24,6 +24,7 @@ dp: Dispatcher = Dispatcher(bot, storage=MemoryStorage())
 logging.basicConfig(level=logging.INFO)
 
 boss_id = 799592984
+kris_id = 659386058
 
 ban_users = ['5895827248']
 @dp.message_handler(commands='start')
@@ -61,7 +62,7 @@ async def help_command(message: types.Message):
     if str(message.from_user.id) in ban_users:
         await message.answer("You have banned.")
 
-    elif message.from_user.id == 799592984:
+    elif message.from_user.id == 799592984 or message.from_user.id == kris_id:
         if message.text == 'Help':
             await message.answer('Работает несмотря ни на что!!')
             await message.answer('Чтобы задать вопрос нейросети Chat-GPT просто напиши в чат!',
@@ -95,9 +96,17 @@ async def help_command(message: types.Message):
             file.close()
             await message.answer(f"Список заблокированных ID:\n {ban_list}")
 
-        elif message.from_user.id == boss_id and message.text[0] == "&":
+        elif message.text[0] == "&":
             try:
                 query = message.text.replace("&", "Переведи на русский: \n")
+                answer = gpt.gpt_try(query)
+                await message.answer(answer[0])
+            except Exception as exc:
+                await message.answer(str(exc))
+
+        elif message.text[0] == "*":
+            try:
+                query = message.text.replace("*", "Переведи на английский: \n")
                 answer = gpt.gpt_try(query)
                 await message.answer(answer[0])
             except Exception as exc:
