@@ -70,7 +70,7 @@ async def help_command(message: types.Message):
 
     elif message.from_user.id == 799592984 or message.from_user.id == kris_id:
         if message.text == 'Help':
-            await message.answer('Работает несмотря ни на что!!')
+            await message.answer('Работает. All users are blocked.')
             await message.answer('Чтобы задать вопрос нейросети Chat-GPT просто напиши в чат!',
                                  reply_markup=help_kb)
 
